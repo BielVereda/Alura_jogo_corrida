@@ -4,17 +4,21 @@ let xJogador2 = 25;
 function setup() {
   createCanvas(400, 400);
   noStroke();
-  textAlign(CENTER, CENTER); // centraliza texto horizontal e vertical
+  textAlign(CENTER, CENTER); // Centraliza texto horizontal e vertical
 }
 
 function draw() {
-  // Fundo gradiente azul → verde
-  for (let y = 0; y < height; y++) {
-    let inter = map(y, 0, height, 0, 1);
-    let c = lerpColor(color('#6EC5E9'), color('#A8E6CF'), inter);
-    fill(c);
-    rect(0, y, width, 1);
-  }
+  // Define a cor do background ao clicar na página
+  if (focused == true){
+    for (let y = 0; y < height; y++) {
+      let inter = map(y, 0, height, 0, 1);
+      let c = lerpColor(color('#6EC5E9'), color('#A8E6CF'), inter);
+      fill(c);
+      rect(0, y, width, 1);
+      }
+  } else {
+    background("rgb(238, 178, 178)");
+    }
 
   // Linha de chegada destacada
   stroke('#FF8C00');
